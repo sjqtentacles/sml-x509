@@ -1,0 +1,14 @@
+(* Source files for the vendored sml-pem library, in dependency order.
+ *
+ * sml-pem's Base64 codec comes from sml-codec, which is vendored as a sibling
+ * directory. It is pulled in here along the SINGLE shared path so the diamond
+ * (sml-rsa also needs SHA-1/256/512 from sml-codec directly, and gets the
+ * whole codec via this include) resolves to exactly one copy of every codec
+ * structure. *)
+
+$(SML_LIB)/basis/basis.mlb
+
+../sml-codec/sources.mlb
+
+pem.sig
+pem.sml

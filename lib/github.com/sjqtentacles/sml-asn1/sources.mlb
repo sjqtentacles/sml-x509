@@ -1,0 +1,13 @@
+(* Source files for the vendored sml-asn1 library, in dependency order.
+ *
+ * sml-asn1's INTEGER values are carried by sml-bigint, which is vendored as a
+ * sibling directory. It is pulled in here along the SINGLE shared path so the
+ * diamond (sml-rsa also needs BigInt directly, and gets it via this include)
+ * resolves to exactly one copy of the BigInt structure. *)
+
+$(SML_LIB)/basis/basis.mlb
+
+../sml-bigint/sources.mlb
+
+asn1.sig
+asn1.sml

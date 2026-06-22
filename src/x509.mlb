@@ -1,0 +1,18 @@
+(* MLB for the sml-x509 library.
+ *
+ * x509 needs Rsa (signature verification), Asn1/BigInt (DER + the serial
+ * number), and Pem (textual certs).  Every dependency is reachable through the
+ * vendored sml-rsa, whose sources.mlb already pulls in sml-asn1 (-> BigInt) and
+ * sml-pem (-> the SHA codec) each along a SINGLE path, so the diamond resolves
+ * to exactly one copy of every shared structure.  We therefore include sml-rsa
+ * and nothing else, mirroring how sml-rsa itself wired asn1 + pem.
+ *
+ * Brought in WITHOUT a `local` wrapper so tests and examples can use the
+ * vendored Rsa / Asn1 / Pem / BigInt structures alongside X509. *)
+$(SML_LIB)/basis/basis.mlb
+
+(* rsa -> {asn1 -> bigint, pem -> codec} : the single path to every shared dep *)
+../lib/github.com/sjqtentacles/sml-rsa/sources.mlb
+
+x509.sig
+x509.sml

@@ -1,0 +1,9 @@
+(* Demo basis: the x509 library (which pulls in the vendored sml-rsa / sml-asn1
+ * / sml-pem / sml-bigint / sml-codec) plus the committed certificate fixtures,
+ * reused so the demo is deterministic and self-contained. *)
+$(SML_LIB)/basis/basis.mlb
+
+../src/x509.mlb
+
+../test/fixtures.sml
+demo.sml

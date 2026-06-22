@@ -1,0 +1,21 @@
+(* Source files for the vendored sml-rsa library, in dependency order.
+ *
+ * sml-rsa has two dependency diamonds: it needs BigInt (also used by sml-asn1)
+ * and the SHA codec (also used by sml-pem).  Each shared dependency is pulled
+ * in along a SINGLE path so there is exactly one copy of every structure:
+ *   - sml-asn1's sources.mlb transitively includes sml-bigint;
+ *   - sml-pem's  sources.mlb transitively includes the whole sml-codec
+ *     (Base16/Base64 + SHA-1/256/512).
+ * Nothing re-includes BigInt or the codec, so there are no duplicate structure
+ * definitions.  This mirrors sml-rsa's own src/rsa.mlb load order exactly. *)
+
+$(SML_LIB)/basis/basis.mlb
+
+(* asn1 -> bigint : the only path that includes BigInt *)
+../sml-asn1/sources.mlb
+
+(* pem -> codec : the only path that includes Sha1/Sha256/Sha512 + Base64 *)
+../sml-pem/sources.mlb
+
+rsa.sig
+rsa.sml

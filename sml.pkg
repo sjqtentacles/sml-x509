@@ -1,0 +1,9 @@
+package github.com/sjqtentacles/sml-x509
+
+require {
+  github.com/sjqtentacles/sml-bigint
+  github.com/sjqtentacles/sml-codec
+  github.com/sjqtentacles/sml-asn1
+  github.com/sjqtentacles/sml-pem
+  github.com/sjqtentacles/sml-rsa
+}

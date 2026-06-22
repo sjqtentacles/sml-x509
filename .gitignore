@@ -1,0 +1,8 @@
+# MLton build artifacts
+/bin/
+
+# local scratch (downloaded vector files, generated fixtures, keys)
+/.vectors/
+
+# editor/OS noise
+.DS_Store

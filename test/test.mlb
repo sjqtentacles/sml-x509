@@ -1,0 +1,10 @@
+(* Test executable basis: the x509 library (which pulls in the vendored
+ * sml-rsa / sml-asn1 / sml-pem / sml-bigint / sml-codec) plus the harness, the
+ * committed certificate fixtures, the suite and the runner. *)
+$(SML_LIB)/basis/basis.mlb
+../src/x509.mlb
+harness.sml
+fixtures.sml
+test_x509.sml
+entry.sml
+main.sml
