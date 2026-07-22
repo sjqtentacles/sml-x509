@@ -1,5 +1,7 @@
 # sml-x509
 
+[![CI](https://github.com/sjqtentacles/sml-x509/actions/workflows/ci.yml/badge.svg)](https://github.com/sjqtentacles/sml-x509/actions/workflows/ci.yml)
+
 Pure Standard ML **X.509 v3 certificate parser** and **RSA signature
 verifier** — decodes DER/PEM certificates (RFC 5280), exposes the common fields
 and v3 extensions, and verifies certificate signatures whose issuer key is RSA
